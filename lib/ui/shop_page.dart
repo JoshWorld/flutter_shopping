@@ -23,7 +23,6 @@ class _ShopPageState extends State<ShopPage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text('컬러 리스트'),
@@ -45,8 +44,9 @@ class _ShopPageState extends State<ShopPage> {
 
 //color
   Widget _buildListTile(CustomColor color) {
-    final colors = Provider.of<CartList>(context);//이부분
-    IconData iconData = colors.cartList.contains(color) ? Icons.check : Icons.add_shopping_cart;
+    final colors = Provider.of<CartList>(context); //이부분
+    IconData iconData =
+        colors.cartList.contains(color) ? Icons.check : Icons.add_shopping_cart;
     return ListTile(
       leading: Container(
         width: 30,

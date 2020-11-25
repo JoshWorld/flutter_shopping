@@ -9,9 +9,6 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
-
-
-
   @override
   Widget build(BuildContext context) {
     final colors = Provider.of<CartList>(context);
@@ -21,7 +18,8 @@ class _CartPageState extends State<CartPage> {
         title: Text('장바구니'),
       ),
       body: ListView(
-        children: colors.cartList.map((e) => _buildListTile(colors, e)).toList(),
+        children:
+            colors.cartList.map((e) => _buildListTile(colors, e)).toList(),
       ),
     );
   }
