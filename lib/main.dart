@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shopping/model/Item_model.dart';
 import 'package:flutter_shopping/ui/itemList_page.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    //멀티프로바이더 구현
+    MultiProvider(providers: [
+      ChangeNotifierProvider(create: (context) => Item()),
+    ],
+    child: MyApp(),)
+  );
 }
 
 class MyApp extends StatelessWidget {

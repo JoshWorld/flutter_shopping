@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shopping/model/Item_model.dart';
+import 'package:provider/provider.dart';
 
 class CartPage extends StatefulWidget {
   List<Item> items;
@@ -17,7 +18,8 @@ class _CartPageState extends State<CartPage> {
   void initState() {
     super.initState();
     setState(() {
-      _sumPrice = widget.items.where((e) => e.check == false).map((e) => e.price).reduce((value, element) => value + element);
+      //장바구니 아이템 합계
+      _sumPrice = widget.items.where((e) => e.check == true).map((e) => e.price).reduce((value, element) => value + element);
     });
   }
 
@@ -43,26 +45,21 @@ class _CartPageState extends State<CartPage> {
                                   width: 32,
                                   child: TextField(
                                     // Item class 변수로 TextEditingController를 만들어야 되는지?
-                                    onChanged: (count){
-                                      setState(() {
-                                        // String _temp = count.int.parse();
-                                      });
-
-                                    },
-                                    controller: TextEditingController(text: e.mulit.toString()),
+                                    keyboardType: TextInputType.number,
+                                    controller: TextEditingController(text: e.multi.toString()),
                                   )),
                               IconButton(
                                   icon: Icon(Icons.add),
                                   onPressed: () {
                                     setState(() {
-                                      e.mulit++;
+                                      e.multi++;
                                     });
                                   }),
                               IconButton(
                                   icon: Icon(Icons.indeterminate_check_box_outlined),
                                   onPressed: () {
                                     setState(() {
-                                      e.mulit--;
+                                      e.multi--;
                                     });
                                   }),
                             ],

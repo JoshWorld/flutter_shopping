@@ -1,12 +1,19 @@
-class Item{
+import 'package:flutter/material.dart';
+
+class Item with ChangeNotifier{
   String name;
   num price;
   int count = 0;
-  int mulit =1;
+  int multi =1;
   bool check = false;
 
 
-  Item(this.name, this.price);
+
+  void checked() {
+    check =!check;
+    //변경알림
+    notifyListeners();
+}
 
   @override
   String toString() {

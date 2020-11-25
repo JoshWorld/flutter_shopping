@@ -15,18 +15,13 @@ class _ItemListState extends State<ItemList> {
     // TODO: implement initState
     super.initState();
     items = [
-      Item('서비스_1', 10000),
-      Item('서비스_1', 10000),
-      Item('서비스_1', 10000),
-      Item('서비스_1', 10000),
-      Item('서비스_1', 10000),
-      Item('서비스_1', 10000),
-      Item('서비스_1', 10000),
-      Item('서비스_1', 10000),
-      Item('서비스_1', 10000),
-      Item('서비스_1', 10000),
-      Item('서비스_1', 10000),
-      Item('서비스_1', 10000),
+      Item()..name = '서비스' ..price= 1000,
+      Item()..name = '서비스' ..price= 1000,
+      Item()..name = '서비스' ..price= 1000,
+      Item()..name = '서비스' ..price= 1000,
+      Item()..name = '서비스' ..price= 1000,
+      Item()..name = '서비스' ..price= 1000,
+      Item()..name = '서비스' ..price= 1000,
     ];
   }
 
