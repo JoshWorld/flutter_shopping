@@ -2,6 +2,7 @@
 
 상태 관리 연습용 과제
 
+블라블라
 ## Getting Started
 
 This project is a starting point for a Flutter application.
