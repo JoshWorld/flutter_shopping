@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_shopping/model/cart_list.dart';
+import 'file:///C:/Users/Joon/AndroidStudioProjects/git_clone/jhjoon95/flutter_shopping/lib/state/cart_list.dart';
 import 'package:flutter_shopping/model/custom_color.dart';
 import 'package:provider/provider.dart';
 
