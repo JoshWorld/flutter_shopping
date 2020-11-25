@@ -2,7 +2,9 @@ class Item{
   String name;
   num price;
   int count = 0;
+  int mulit =1;
   bool check = false;
+
 
   Item(this.name, this.price);
 
