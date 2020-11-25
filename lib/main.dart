@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shopping/model/cart_list.dart';
 import 'package:flutter_shopping/ui/shop_page.dart';
+import 'package:provider/provider.dart';
+
+import 'model/custom_color.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+      ChangeNotifierProvider(
+        create: (context) => CartList(),
+        child: MyApp(),
+    )
+  );
 }
 
 class MyApp extends StatelessWidget {

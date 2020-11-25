@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shopping/model/cart_list.dart';
 import 'package:flutter_shopping/model/custom_color.dart';
 import 'package:flutter_shopping/ui/cart_page.dart';
+import 'package:provider/provider.dart';
 
 class ShopPage extends StatefulWidget {
   @override
@@ -8,7 +10,7 @@ class ShopPage extends StatefulWidget {
 }
 
 class _ShopPageState extends State<ShopPage> {
-  final List<CustomColor> colorsList = [
+  List<CustomColor> colorsList = [
     CustomColor(Colors.black, 'Black'),
     CustomColor(Colors.red, 'Red'),
     CustomColor(Colors.blue, 'Blue'),
@@ -19,10 +21,9 @@ class _ShopPageState extends State<ShopPage> {
     CustomColor(Colors.white, 'White')
   ];
 
-  List<CustomColor> cartList = [];
-
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: Text('컬러 리스트'),
@@ -44,6 +45,8 @@ class _ShopPageState extends State<ShopPage> {
 
 //color
   Widget _buildListTile(CustomColor color) {
+    final colors = Provider.of<CartList>(context);
+    IconData iconData = colors.cartList.contains(color) ? Icons.check : Icons.add_shopping_cart;
     return ListTile(
       leading: Container(
         width: 30,
@@ -53,9 +56,9 @@ class _ShopPageState extends State<ShopPage> {
       title: Text(color.name),
       trailing: InkWell(
         child: IconButton(
-          icon: Icon(Icons.check),
+          icon: Icon(iconData),
           onPressed: () {
-            cartList.add(color);
+            colors.addCart(color);
           },
         ),
       ),
