@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shopping/model/Item_model.dart';
+import 'package:flutter_shopping/ui/cart_page.dart';
 
 class ItemList extends StatefulWidget {
   @override
@@ -37,13 +38,20 @@ class _ItemListState extends State<ItemList> {
         actions: [
           Row(
             children: [
-              IconButton(icon: Icon(Icons.shopping_cart), onPressed: (){}),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(items.where((item) => item.check==true).length.toString()),
-          )
+              IconButton(
+                  icon: Icon(Icons.shopping_cart),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => CartPage(items)),
+                    );
+                  }),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(items.where((item) => item.check == true).length.toString()),
+              )
             ],
-          )   ,
+          ),
         ],
       ),
       body: ListView(
@@ -51,6 +59,15 @@ class _ItemListState extends State<ItemList> {
               .map((e) => ListTile(
                     title: Text(e.name),
                     subtitle: Text(e.toString()),
+                    trailing: IconButton(
+                        icon: e.check == true
+                        ?Icon(Icons.shopping_cart,color: Colors.red,)
+                        :Icon(Icons.shopping_cart_outlined),
+                        onPressed: () {
+                          setState(() {
+                            e.check = !e.check;
+                          });
+                        }),
                   ))
               .toList()),
     );
