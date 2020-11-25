@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/Joon/AndroidStudioProjects/git_clone/jhjoon95/flutter_shopping/lib/state/cart_list.dart';
+import 'package:flutter_shopping/state/cart_list.dart';
 import 'package:flutter_shopping/model/custom_color.dart';
 import 'package:flutter_shopping/ui/cart_page.dart';
 import 'package:provider/provider.dart';
@@ -42,7 +42,6 @@ class _ShopPageState extends State<ShopPage> {
     );
   }
 
-//color
   Widget _buildListTile(CustomColor color) {
     final colors = Provider.of<CartList>(context); //이부분
     IconData iconData =
