@@ -5,8 +5,11 @@ class CartItem extends ChangeNotifier {
   final List<ShoppingItem> _cartItems = [];
   int totalPrice = 0;
 
-  List<ShoppingItem> get cartItems => _cartItems;
+  //이 방식은 안의 내용 수정 가능(변경가능 리스트 mutable list)
+  // List<ShoppingItem> get cartItems => _cartItems;
 
+  //변경불가능 리스트 immutable list
+  List<ShoppingItem> get cartItems => List.unmodifiable(_cartItems);
 
   void add(ShoppingItem item) {
     _cartItems.add(item);

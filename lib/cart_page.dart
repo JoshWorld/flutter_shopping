@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_shopping/model/cart_item.dart';
+import 'file:///C:/mobile/ssac_flutter/flutter_shopping/lib/cart_item.dart';
 import 'package:flutter_shopping/model/shopping_item.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
